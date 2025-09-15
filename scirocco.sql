@@ -1,0 +1,88 @@
+CREATE TABLE `winder` (
+  `id` VARCHAR(20) NOT NULL PRIMARY KEY,  
+  `id_doffer` VARCHAR(20) NOT NULL,  
+  `id_sleever` VARCHAR(20) NOT NULL,  
+  `ishalf` INTEGER NOT NULL DEFAULT 0,
+  `xchg_time_ms` INTEGER NOT NULL DEFAULT 0,
+  `wind_time_ms` INTEGER NOT NULL DEFAULT 0,  
+  `alert_time_ms` INTEGER NOT NULL DEFAULT 0
+);
+INSERT INTO winder VALUES ('W_01', 'D_01', 'S_01', 0, 1000, 90000, 5000);
+INSERT INTO winder VALUES ('W_02', 'D_01', 'S_01', 0, 1000, 90000, 5000);
+INSERT INTO winder VALUES ('W_03', 'D_01', 'S_01', 0, 1000, 90000, 5000);
+INSERT INTO winder VALUES ('W_04', 'D_01', 'S_01', 0, 1000, 90000, 5000);
+INSERT INTO winder VALUES ('W_05', 'D_01', 'S_01', 0, 1000, 90000, 5000);
+
+INSERT INTO winder VALUES ('W_06', 'D_02', 'S_02', 0, 500, 90000, 6000);
+INSERT INTO winder VALUES ('W_07', 'D_02', 'S_02', 0, 500, 90000, 6000);
+INSERT INTO winder VALUES ('W_08', 'D_02', 'S_02', 0, 500, 90000, 6000);
+INSERT INTO winder VALUES ('W_09', 'D_02', 'S_02', 0, 500, 90000, 6000);
+INSERT INTO winder VALUES ('W_10', 'D_02', 'S_02', 0, 500, 90000, 6000);
+
+INSERT INTO winder VALUES ('W_11', 'D_03', 'S_03', 0, 1000, 90000, 6000);
+INSERT INTO winder VALUES ('W_12', 'D_03', 'S_03', 0, 1000, 90000, 6000);
+INSERT INTO winder VALUES ('W_13', 'D_03', 'S_03', 0, 1000, 90000, 6000);
+INSERT INTO winder VALUES ('W_14', 'D_03', 'S_03', 0, 1000, 90000, 6000);
+INSERT INTO winder VALUES ('W_15', 'D_03', 'S_03', 0, 1000, 90000, 6000);
+
+INSERT INTO winder VALUES ('W_16', 'D_04', 'S_04', 0, 500, 90000, 5000);
+INSERT INTO winder VALUES ('W_17', 'D_04', 'S_04', 0, 500, 90000, 5000);
+INSERT INTO winder VALUES ('W_18', 'D_04', 'S_04', 0, 500, 90000, 5000);
+INSERT INTO winder VALUES ('W_19', 'D_04', 'S_04', 0, 500, 90000, 5000);
+INSERT INTO winder VALUES ('W_20', 'D_04', 'S_04', 0, 500, 90000, 5000);
+
+CREATE TABLE `sleever` (
+  `id` VARCHAR(20) NOT NULL PRIMARY KEY,  
+  `speed` INTEGER NOT NULL,  
+  `pdown_time_ms` INTEGER NOT NULL,  
+  `sleeve_slots` INTEGER NOT NULL DEFAULT 0,
+  `rings` INTEGER NOT NULL DEFAULT 0
+);
+INSERT INTO sleever VALUES ('S_01', 50, 2500, 20, 10);
+INSERT INTO sleever VALUES ('S_02', 50, 2500, 20, 10);
+INSERT INTO sleever VALUES ('S_03', 50, 2500, 20, 10);
+INSERT INTO sleever VALUES ('S_04', 50, 2500, 20, 10);
+INSERT INTO sleever VALUES ('S_05', 50, 2500, 20, 10);
+
+CREATE TABLE `doffer` (
+  `id` VARCHAR(20) NOT NULL PRIMARY KEY,  
+  `speed` INTEGER NOT NULL,  
+  `getin_time_ms` INTEGER NOT NULL,  
+  `pdown_time_ms` INTEGER NOT NULL
+);
+INSERT INTO doffer VALUES ('D_01', 50, 2000, 2000);
+INSERT INTO doffer VALUES ('D_02', 50, 2000, 2000);
+INSERT INTO doffer VALUES ('D_03', 50, 2000, 2000);
+INSERT INTO doffer VALUES ('D_04', 50, 2000, 2000);
+INSERT INTO doffer VALUES ('D_05', 50, 2000, 2000);
+
+CREATE TABLE `spooler` (
+  `id` VARCHAR(20) NOT NULL PRIMARY KEY,  
+  `id_doffer` VARCHAR(20) NOT NULL,
+  `isdouble` INTEGER NOT NULL DEFAULT 1, 
+  `rows` INTEGER NOT NULL,  
+  `columns` INTEGER NOT NULL
+);
+INSERT INTO spooler VALUES ('SP_01', 'D_01', 0, 4, 4);
+INSERT INTO spooler VALUES ('SP_02', 'D_01', 0, 4, 4);
+INSERT INTO spooler VALUES ('SP_03', 'D_02', 1, 4, 3);
+INSERT INTO spooler VALUES ('SP_04', 'D_02', 1, 4, 3);
+INSERT INTO spooler VALUES ('SP_05', 'D_03', 0, 3, 4);
+INSERT INTO spooler VALUES ('SP_06', 'D_03', 0, 3, 4);
+INSERT INTO spooler VALUES ('SP_07', 'D_04', 1, 3, 3);
+INSERT INTO spooler VALUES ('SP_08', 'D_04', 1, 3, 3);
+
+CREATE TABLE `man` (
+  `id` VARCHAR(20) NOT NULL PRIMARY KEY,  
+  `speed` INTEGER NOT NULL,  
+  `wdrstart_time_ms` INTEGER NOT NULL DEFAULT 0,  
+  `rotspl_time_ms` INTEGER NOT NULL DEFAULT 0,  
+  `chgspl_time_ms` INTEGER NOT NULL DEFAULT 0,  
+  `loadslv_time_ms` INTEGER NOT NULL DEFAULT 0
+);
+INSERT INTO man VALUES ('Man_01', 60, 1000, 1500, 3000, 2000);
+INSERT INTO man VALUES ('Man_02', 60, 1000, 1500, 3000, 2000);
+
+
+  
+  
